@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VerifSur</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <meta name="theme-color" content="white">
+<meta name="apple-mobile-web-app-status-bar-style" content="white">
+   </head>
+<body>
+  <div class="wrapper">
+    <div class="center-div">
+    <h1 class="before">verif<a class="after">Sur.</a></h1>
+    <br>
+    <h2>verify your identity <br>with <span class="before">Verif<a class="after">Sur.</a></span></h2><br>
+    <!-- <p>La veuve de deux maris a droit à une carte de visite avec un W, c'est-à-dire « double veuve ».</p> -->
+    <br>
+    <div class="center-img">
+    <img class="wecome-img" src="{% get_static_prefix %}images/undrawwelcome.svg">
+    </div>
+    <div class='center_button_welcome'>
+        <a class="button-welcome1" href="{% url 'step_zero' %}">Get Started</a>
+      </div>
+  </div>
+</div>
+</body>
+</html>

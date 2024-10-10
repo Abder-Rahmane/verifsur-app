@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VerifSur</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div id="camera-container">
+        <video id="video" width="400" height="300" autoplay playsinline muted></video>
+        <div id="identity-card" class="identity-card"></div>
+    </div>
+    <div class="wrapper">
+        <div class="center-div">
+            <h2>Let's check your identity card</h2><br>
+            <br>
+            <div class="center-img">
+                <img class="welcome-img" src="{% get_static_prefix %}images/identity_card.svg">
+            </div>
+            <div class='center_button_welcome'>
+                <button id="capture" class="button-welcome1">Capture</button>
+                <canvas id="canvas" width="400" height="300" style="display:none;"></canvas>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
