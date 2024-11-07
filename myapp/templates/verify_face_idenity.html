@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détection de la tête</title>
+    
+    <link href="{% static "css/style.css" %}" rel="stylesheet" />
+</head>
+<body>
+    <!-- Conteneur principal pour la caméra et la forme ovale -->
+    <div id="camera-container">
+        <video id="video" width="400" height="300" autoplay playsinline muted></video>
+        <div id="oval" class="oval">
+            <p id="feedback-text"></p>
+        </div>
+        
+    
+</div>
+<button id="start">Démarrer la détection</button>
+    <script src="{% static 'js/build/clmtrackr.js' %}"></script>
+    <script src="{% static 'js/models/model_pca_20_svm.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    
+</body>
+</html>

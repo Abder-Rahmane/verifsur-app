@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VerifSur</title>
+    <link href="{% static "css/style.css" %}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Conteneur principal pour la caméra et la forme ovale -->
+    <div id="camera-container">
+        <video id="video" width="400" height="300" autoplay playsinline muted></video>
+        <div id="oval" class="oval">
+            <p id="feedback-text"></p>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <div class="center-div">
+            <h2>Alright, let's thoroughly check your face now.</h2><br>
+            <br>
+            <div class="center-img">
+                <img class="wecome-img" src="{% get_static_prefix %}images/pic_profil.svg">
+            </div>
+            <div class='center_button_welcome'>
+                <a id="start" class="button-welcome1">Capture Face</a>
+            </div>
+            <div id="progress-container-recto" style="display:none;">
+                <span class="reco-text">Face</span>
+                <div id="progress-bar-recto"><i id="valid-icon-recto" class="fa fa-check" aria-hidden="true" style="display:none;"></i></div>
+                <i id="retry-capture-recto" class="fa fa-refresh"></i>
+            </div>
+        </div>
+        </div>
+    </div>
+    <script src="{% static 'js/build/clmtrackr.js' %}"></script>
+    <script src="{% static 'js/models/model_pca_20_svm.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    
+</body>
+</html>

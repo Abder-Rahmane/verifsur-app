@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1">
+    <title>VerifSur</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <meta name="theme-color" content="white">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+   </head>
+<body>
+  <div class="wrapper">
+    <div class="center-div">
+        <h1 class="before">Verif<a class="after">Sur.</a></h1>
+        <br>
+        <h2>verify your identity card </h2><br>
+        <form method="post" id="myForm">
+
+      {% csrf_token %}
+        <p>
+          <div class="input-box">
+            {{ form.first_name }}
+          </div>
+          <div style="color: red; font-size: 11px;">{{ form.first_name.errors }}</div>
+          <div class="input-box">
+            {{ form.last_name }}
+          </div>
+          <div style="color: red; font-size: 11px;">{{ form.last_name.errors }}</div>
+          <div class="input-box">
+            {{ form.sexe }}
+          </div>
+          <div style="color: red; font-size: 11px;">{{ form.sexe.errors }}</div>
+          <div class="input-box">
+            {{ form.date_of_birth }}
+          </div>
+          <div style="color: red; font-size: 11px;">{{ form.date_of_birth.errors }}</div>
+          <div class="input-box">
+            {{ form.addresses }}
+          </div>
+          <div style="color: red; font-size: 11px;">{{ form.addresses.errors }}</div>
+          <div class="input-box">
+            {{ form.city }}
+          </div>
+          <div style="color: red; font-size: 11px;">{{ form.city.errors }}</div>
+          <div class="input-box">
+            {{ form.date_depot }}
+          </div>
+          <div style="color: red; font-size: 11px;">{{ form.date_depot.errors }}</div>
+          <div class="input-box">
+            {{ form.date_expirated }}
+          </div>
+          <div style="color: red; font-size: 11px;">{{ form.date_expirated.errors }}</div>
+        </p>
+      <div class="policy">
+            {{ form.confidentiality }}
+            <h3>I accept all terms & condition for verify my identity</h3>
+      </div>
+      <div style="color: red; font-size: 11px;">{{ form.confidentiality.errors }}</div>
+      <div id="error" style="color: red; font-size: 11px;"></div>
+      <div class="input-box button">
+        <input value="NEXT" type="submit" class="btn-start"></input>
+      </div>
+    </form>
+  </div> 
+</div>
+
+</body>
+</html>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#id_date_of_birth').datepicker();
+        $('#id_date_depot').datepicker();
+        $('#id_date_expirated').datepicker();
+        
+        // Nouveau code pour vérifier la case à cocher
+        $('#myForm').submit(function(e) {
+            if (!$('#id_confidentiality').prop('checked')) {
+                $('#error').text('Veuillez accepter les termes et conditions.');
+                e.preventDefault();
+            } else {
+                $('#error').text('');
+            }
+        });
+    });
+</script>
